@@ -1,11 +1,11 @@
 # Booleans
 
-#t
-#f
+true
+false
 
 ==>
 
-Program(Boolean, Boolean)
+Program(True, False)
 
 # Identifiers
 
@@ -28,14 +28,35 @@ Program(String, String)
 # Applications
 
 (begin
-  (when #t
+  (when true
     (print (concat "hello" " " "world")))
   (print "DONE"))
 
 ==>
 
-Program(Application(
+Program (
   Identifier,
-  Application(Identifier, Boolean, Application(
-    Identifier, Application(Identifier, String, String, String)))
-  Application(Identifier, String)))
+  Identifier, True, 
+    Identifier, Identifier, String, String, String,
+  Identifier, String
+)
+
+# List
+
+[1,2,3]
+
+==>
+
+Program (
+  List (Number, Number, Number)
+)
+
+# Record
+
+{ foo: "bar" }
+
+==>
+
+Program (
+  Record ("{", Field (FieldName (Identifier), String), "}" )
+)
